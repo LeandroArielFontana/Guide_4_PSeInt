@@ -1,5 +1,4 @@
 Algoritmo Ejercicio_Extra_17_Guia_4
-	
 	//	Una distribuidora de Nescafé tiene 4 representantes que viajan por toda la Argentina 
 	//	ofreciendo sus productos. Para tareas administrativas el país está dividido en cinco 
 	//	zonas: Norte, Sur, Este, Oeste y Centro. Mensualmente almacena sus datos y obtiene 
@@ -11,184 +10,130 @@ Algoritmo Ejercicio_Extra_17_Guia_4
 	//		b) el total de ventas de un vendedor introducido por teclado en cada una de las zonas 
 	//		c) el total de ventas de todos los representantes
 	
-	Definir Representante_1 Como Real;
-	
-	Definir Representante_2 Como Real;
-	
-	Definir Representante_3 Como Real;
-	
-	Definir Total_Ventas Como Entero;
-	
-	Definir d Como Entero
-	
-	Definir dtv Como Entero
+	Definir representante1, representante2, representante3 Como Real;
+	Definir totalVentas, d, dtv Como Entero;
 	
 	d = 6
-	
 	dtv = d - 1
 	
-	Dimension Representante_1(d)
-	Dimension Representante_2(d)
-	Dimension Representante_3(d)
-	Dimension Total_Ventas(dtv)
-	
+	Dimension representante1(d);
+	Dimension representante2(d);
+	Dimension representante3(d);
+	Dimension totalVentas(dtv);
 	
 	Escribir " ---------------- Representante 1 ---------------- ";
 	
-	Rellenar(Representante_1,d)
-	
-	Representante_1(d-1) = SumatoriaSemanal(Representante_1, d - 2)
+	rellenar(representante1,d);
+	representante1(d - 1) = sumatoriaSemanal(representante1, d - 2);
 	
 	Escribir " ---------------- Representante 2 ---------------- ";
 	
-	Rellenar(Representante_2,d)
-	
-	Representante_2(d-1) = SumatoriaSemanal(Representante_2, d - 2)
+	rellenar(representante2,d);
+	representante2(d - 1) = sumatoriaSemanal(representante2, d - 2);
 	
 	Escribir " ---------------- Representante 3 ---------------- ";
 	
-	Rellenar(Representante_3,d)
-	
-	Representante_3(d-1) = SumatoriaSemanal(Representante_3, d - 2)
+	rellenar(representante3,d);
+	representante3(d-1) = sumatoriaSemanal(representante3, d - 2);
 	
 	Escribir " -------------------------------------------- ";
 	
-	Escribir "                  Norte  |  Sur  |   Este  |  Oeste  |  Centro |  Total Semana |"
-	
-	Escribir sin saltar "Representante 1"
-	
-	Print(Representante_1, d)
-	
-	Escribir sin saltar "Representante 2"
-	
-	Print(Representante_2, d)
-	
-	Escribir sin saltar "Representante 3"
-	
-	Print(Representante_3, d)
-	
-	Escribir Sin Saltar "Ventas / Zona  "
-	
-	TotalVentas(Total_Ventas, Representante_1, Representante_2, Representante_3, d, dtv)
-	
-	Print2(Total_Ventas, dtv)
-	
+	Escribir "                  Norte  |  Sur  |   Este  |  Oeste  |  Centro |  Total Semana |";
+	Escribir sin saltar "Representante 1";
+	print(representante1, d);
+	Escribir sin saltar "Representante 2";
+	print(representante2, d);
+	Escribir sin saltar "Representante 3";
+	print(representante3, d);
+	Escribir Sin Saltar "Ventas / Zona  ";
+	totalVentas(totalVentas, representante1, representante2, representante3, d, dtv);
+	print2(totalVentas, dtv);
 FinAlgoritmo
 
-SubProceso TotalVentas(Total_Ventas Por Referencia, Representante_1, Representante_2, Representante_3, d, dtv)
-	
+SubProceso totalVentas(totalVentas Por Referencia, representante1, representante2, representante3, d, dtv)
 	Definir i Como Entero;
 	
 	Para i = 0 Hasta dtv - 1 Con Paso 1 Hacer
-		
-		Total_Ventas(i) = Representante_1(i) + Representante_2(i) + Representante_3(i) 
-		
+		totalVentas(i) = representante1(i) + representante2(i) + representante3(i); 
 	FinPara
-	
 FinSubProceso
 
-Funcion Suma <- SumatoriaSemanal(Representante_ , d)
+Funcion suma <- sumatoriaSemanal(representante_ , d)
+	Definir suma Como Entero;
 	
-	Definir Suma Como Entero
-	
-	Suma = 0
+	suma = 0;
 	
 	Si d = 0 Entonces
-		
-		Suma = Representante_(d)
-		
+		suma = representante_(d);
 	SiNo
-		
-		Suma = Representante_(d)
-		
-		Suma = Suma + SumatoriaSemanal(Representante_ , d-1)
-		
+		suma = representante_(d);
+		suma = suma + sumatoriaSemanal(representante_ , d - 1);
 	FinSi
-	
 FinFuncion
 
-SubProceso Print(Representante_, d)
-	
+SubProceso print(representante_, d)
 	Definir i Como Entero;
 	
 	Para i = 0 Hasta d - 1 Con Paso 1 Hacer
-		
-		Escribir Sin Saltar "  [ ", Representante_(i)," ]  |"
-		
+		Escribir Sin Saltar "  [ ", representante_(i)," ]  |";
 	FinPara
 	
-	Escribir ""
-	
+	Escribir "";
 FinSubProceso
 
-SubProceso Rellenar(Representante_ Por Referencia, d)
+SubProceso rellenar(representante_ Por Referencia, d)
+	Definir i, nro Como Entero;
 	
-	Definir i Como Entero;
-	
-	Definir Nro Como Entero
-	
-	Nro = 0
+	nro = 0;
 	
 	Para i = 0 Hasta d  Hacer
-		
 		Segun i hacer
-			
 			0:
-				
 				Escribir "Digite la cantidad de ventas que realizo el representante en la zona Norte";
-				Leer Nro
+				Leer nro;
 				
-				Representante_(i) = Nro	
+				representante_(i) = nro;
+			
 			1:
 				Escribir "Digite la cantidad de ventas que realizo el representante en la zona Sur";
-				Leer Nro
+				Leer nro;
 				
-				Representante_(i) = Nro
-				
+				representante_(i) = nro;
+			
 			2:
 				Escribir "Digite la cantidad de ventas que realizo el representante en la zona Este";
-				Leer Nro
+				Leer nro;
 				
-				Representante_(i) = Nro
-				
+				representante_(i) = nro;
+			
 			3:	
 				
 				Escribir "Digite la cantidad de ventas que realizo el representante en la zona Oeste";
-				Leer Nro
+				Leer nro;
 				
-				Representante_(i) = Nro
-				
-				
+				representante_(i) = nro;
+			
 			4:
+				Escribir "Digite la cantidad de ventas que realizo el representante en la zona Centro";
+				Leer nro;
 				
-				Escribir "Digite la cantidad de ventas que realizo el representante en la zona Centro"
-				Leer Nro
-				
-				Representante_(i) = Nro
-				
+				representante_(i) = nro;
+			
 			5:
-				
-				Representante_(i) = 0
-				
+				representante_(i) = 0;
+			
 			De Otro Modo:
 				
-				
 		FinSegun
-		
 	FinPara
-	
 FinSubProceso
 
-SubProceso Print2(Representante_, dtv)
-	
+SubProceso print2(representante_, dtv)
 	Definir i Como Entero;
 	
 	Para i = 0 Hasta dtv - 1 Con Paso 1 Hacer
-		
-		Escribir Sin Saltar "  [ ", Representante_(i)," ]  |"
-		
+		Escribir Sin Saltar "  [ ", Representante_(i)," ]  |";
 	FinPara
 	
-	Escribir ""
-	
+	Escribir "";
 FinSubProceso

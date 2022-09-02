@@ -4,63 +4,39 @@ Algoritmo Ejercicio_Extra_9_Guia_4
 	//	esto imagine, por ejemplo, que para un vector V de tamaño 4, el producto de todos los
 	//	valores es igual a (V[1]*V[2]*V[3]*V[4])
 	
-	Definir Vector Como Entero;
-	
-	Definir i Como Entero;
-	
-	Definir Subindice como entero;
-	
-	Definir d Como Entero;
-	
-	d = 0;
-	
-	i = 0;
+	Definir vector, i, d, subindice Como Entero;
 	
 	Escribir "Digite la dimension del vector";
 	Leer d;
 	
-	Subindice = d - 1
+	subindice = d - 1; 
 	
-	Dimension Vector(d);
+	Dimension vector(d);
 	
 	Para i <- 0 Hasta d - 1 Hacer
-		
-		Vector(i) = Aleatorio(1, 3)
-		
+		vector(i) = Aleatorio(1, 3);
 	FinPara
 	
 	Para i <- 0 Hasta d - 1 Con Paso 1 Hacer
-		
-		Escribir Sin Saltar " [ ", Vector(i), " ] "
-		
+		Escribir Sin Saltar " [ ", vector(i), " ] ";
 	FinPara
 	
-	Escribir " "
-	
+	Escribir " ";
 	Escribir Sin Saltar "La sumatoria de todos los valores del Vector sera de: ";
-	
-	Escribir MultiplicacionN(Vector, Subindice)
-	
+	Escribir multiplicacionN(vector, subindice)
 FinAlgoritmo
 
-Funcion Multiplicacion <- MultiplicacionN(Vector, Subindice)
+Funcion multiplicacion <- multiplicacionN(vector, subindice)
+	Definir multiplicacion Como Real;
 	
-	Definir Multiplicacion Como Real;
+	multiplicacion = 1;
 	
-	Multiplicacion = 1;
-	
-	Si Subindice = 0 Entonces
-		
-		Multiplicacion = Multiplicacion * Vector(Subindice)
-		
+	Si subindice = 0 Entonces
+		multiplicacion = multiplicacion * vector(Subindice);
 	SiNo
-		
-		Multiplicacion = Vector(Subindice)
-		
-		Multiplicacion = Multiplicacion * MultiplicacionN(Vector, Subindice - 1)
-		
+		multiplicacion = Vector(Subindice);
+		multiplicacion = multiplicacion * multiplicacion(vector, Subindice - 1);
 	FinSi	
-	
 FinFuncion
 
 

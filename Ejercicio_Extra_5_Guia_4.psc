@@ -1,110 +1,56 @@
 Algoritmo Ejercicio_Extra_5_Guia_4
+	Definir vector, palabra, letra, nuevoCaracter Como Caracter;
+	Definir posicion, aux, i, d Como Entero;
 	
-	Definir Vector Como Caracter;
+	d = 20;
+	aux = 0;
+	nuevoCaracter = "";
+	letra = "";
+	posicion = 0;
 	
-	Definir Palabra Como Caracter;
+	Dimension vector(d);
 	
-	Definir Letra Como Caracter;
+	Escribir "Digite una frase o palabra de no mas 20 caracteres";
+	Leer palabra;
 	
-	Definir Nuevo_Caracter Como Caracter;
-	
-	Definir Posicion Como Entero;
-	
-	Definir Aux Como Entero;
-	
-	Definir i Como Entero;
-	
-	Definir d Como Entero;
-	
-	d = 20
-	
-	Aux = 0;
-	
-	Nuevo_Caracter = "";
-	
-	Letra = "";
-	
-	Palabra = "";
-	
-	Posicion = 0;
-	
-	Dimension Vector(d)
-	
-	Escribir "Digite una frase o palabra de no mas 20 caracteres"
-	Leer Palabra;
-	
-	Si Longitud(Palabra) <= 20 Entonces
-		
+	Si Longitud(palabra) <= 20 Entonces
 		Para i = 0 Hasta d - 1 Con Paso 1 Hacer
-			
-			Letra = Subcadena(Palabra, i, i)
-			
-			Vector(i) = Letra
-			
+			letra = Subcadena(palabra, i, i);
+			vector(i) = letra;
 		FinPara
-		
 	SiNo
-		
-		Escribir "La palabra o frase ingresada supera los 20 caracteres"
-		
+		Escribir "La palabra o frase ingresada supera los 20 caracteres";
 	FinSi
 	
 	Escribir "Digite el caracter y luego la posicion en el que desea ver si se puede agregar (Del 0 al 19)";
-	Leer Nuevo_Caracter, Posicion;
+	Leer nuevoCaracter, Posicion;
 	
-	Si Vector(Posicion) = " " Entonces
+	Si vector(posicion) = " " Entonces
+		vector(posicion) = nuevoCaracter;
 		
-		Vector(Posicion) = Nuevo_Caracter;
-		
-		Escribir "El nuevo vector sera: "
+		Escribir "El nuevo vector sera: ";
 		
 		Para i = 0 Hasta d - 1 Con Paso 1 hacer
-			
-			Escribir sin saltar " [ ", Vector(i) ," ] ";
-			
+			Escribir sin saltar " [ ", vector(i) ," ] ";
 		FinPara
-		
 	SiNo
-		
-		Para i <- Aux Hasta d - 1 Con Paso 1 Hacer
-			
-			Si i = Posicion Entonces
-				
-				Vector(i) = Nuevo_Caracter;
-				
-				Aux = i + 1
-				
+		Para i <- aux Hasta d - 1 Con Paso 1 Hacer
+			Si i = posicion Entonces
+				vector(i) = nuevoCaracter;
+				aux = i + 1;
 			SiNo
-				
-				Si Aux = 0 Entonces
-					
-					Letra = Subcadena(Palabra, Aux , Aux)
-					
+				Si aux = 0 Entonces
+					letra = Subcadena(palabra, aux , aux);
 				SiNo
-					
-					Letra = Subcadena(Palabra, Aux - 1 , Aux - 1)
-					
-					Vector(i) = Letra
-					
-					Aux = Aux + 1
-					
+					letra = Subcadena(palabra, aux - 1 , aux - 1);
+					vector(i) = letra;
+					aux = aux + 1;
 				FinSi
-				
-				
-				
 			FinSi
-			
-			
-			
 		FinPara
 		
 		Para i = 0 Hasta d - 1 Con Paso 1 hacer
-			
-			Escribir sin saltar " [ ", Vector(i) ," ] ";
-			
+			Escribir sin saltar " [ ", vector(i) ," ] ";
 		FinPara
-		
-		
 	FinSi
-	
 FinAlgoritmo

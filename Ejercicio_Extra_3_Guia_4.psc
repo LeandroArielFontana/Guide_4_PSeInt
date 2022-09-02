@@ -6,54 +6,32 @@ Algoritmo Ejercicio_Extra_3_Guia_4
 	//	función Longitud() de PseInt). Mostrar por pantalla cada uno de los nombres junto con su
 	//	longitud.
 	
-	Definir Vector1 Como Caracter;
-	
-	Definir Vector2 Como Entero;
-	
-	Definir Nombre Como Caracter
-	
-	Definir i Como Entero;
-	
-	Definir d Como Entero;
-	
-	Nombre = "";
-	
-	i = 0;
-	
-	d = 0;
+	Definir vector1, nombre Como Caracter;
+	Definir vector2, i, d Como Entero;
 	
 	Escribir "Digite el tamaño de los vectores";
 	Leer d;
 	
-	Dimension Vector1(d)
-	
-	Dimension Vector2(d)
+	Dimension vector1(d);
+	Dimension vector2(d);
 	
 	Para i <- 0 Hasta d - 1 Con Paso 1 Hacer
-		
 		Escribir "Digite un nombre que se guardara en el vector 1";
 		Leer Nombre;
 		
-		Vector1(i) = Nombre;
-		
-		Vector2(i) = Longitud(Nombre)
-		
+		Vector1(i) = nombre;
+		Vector2(i) = Longitud(nombre);
 	FinPara
 	
 	Para i <- 0 Hasta d - 1 Con Paso 1 Hacer
-		
-		Escribir Sin Saltar " [ ", Vector1(i), " ] "
-		
+		Escribir Sin Saltar " [ ", Vector1(i), " ] ";
 	FinPara
 	
-	Escribir ""
+	Escribir "";
 	
 	Para i <- 0 Hasta d - 1 Con Paso 1 Hacer
-		
-		Escribir Sin Saltar " [ ", Vector2(i), " ] "
-		
+		Escribir Sin Saltar " [ ", Vector2(i), " ] ";
 	FinPara
 	
-	Escribir ""
-	
+	Escribir "";
 FinAlgoritmo

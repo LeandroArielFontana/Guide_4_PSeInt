@@ -9,66 +9,36 @@ Algoritmo Ejercicio_Extra_14_Guia_4
 	//	4 + 3 = 7
 	//	1 + 4 = 5
 	
-	Definir Matriz Como Entero;
-	
-	Definir Nro como real;
-	
-	Definir i Como Entero;
-	
-	Definir j Como Entero;
-	
-	Definir f Como Entero;
-	
-	Definir c Como Entero;
-	
-	Definir k Como Entero;
+	Definir matriz, j, i, f, c, k Como Entero;
+	Definir nro como real;
 	
 	k = 0;
-	
 	f = 3;
-	
 	c = 3;
 	
-	Dimension Matriz(f, c)
+	Dimension matriz(f, c)
 	
 	Para i <- 0 Hasta f - 1 Con Paso 1 Hacer
-		
 		Para j <- 0 Hasta c - 1 Con Paso 1 Hacer
-			
 			Si j = c - 1 Entonces
-				
 				Para k = 0 Hasta 0 Con Paso 1 Hacer
-					
-					Matriz(i, j) = Matriz(i, k) + Matriz(i, k + 1) ;
-					
+					matriz(i, j) = matriz(i, k) + matriz(i, k + 1);
 				FinPara
-				
 			SiNo
-				
 				Escribir "Fila : ", i, " Columna : ", j;
-				
 				Escribir "Digite un numero";
-				Leer Nro
+				Leer nro
 				
-				Matriz(i, j) = Nro;
-				
-				
+				matriz(i, j) = nro;
 			FinSi
-			
 		FinPara
-		
 	FinPara
 	
 	Para i <- 0 Hasta f - 1 Con Paso 1 Hacer
-		
 		Para j <- 0 Hasta c - 1 Con Paso 1 Hacer
-			
-			Escribir Sin Saltar " [ ", Matriz(i, j), " ] "
-			
+			Escribir Sin Saltar " [ ", matriz(i, j), " ] ";
 		FinPara
 		
-		Escribir ""
-		
+		Escribir "";
 	FinPara
-	
 FinAlgoritmo
